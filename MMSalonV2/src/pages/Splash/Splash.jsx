@@ -1,11 +1,26 @@
-
+import styled from "styled-components";
+import Logo from "../../assets/images/logo.svg";
 
 const Splash = () => {
+
+{/* Styled Components */}
+const IntroContainer = styled.div`
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const SVGLogoContainer = styled.img`
+    border: 5px;
+`;
+{/* End of Styled Components */}
     return (
         <>
-            <div id="introContainer" className="">
-                Yes b'Ye
-            </div>
+            <IntroContainer>
+                <SVGLogoContainer src={Logo} />
+            </IntroContainer>
         </>
     )
 }
