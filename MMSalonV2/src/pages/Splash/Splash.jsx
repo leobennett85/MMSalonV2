@@ -13,7 +13,7 @@ const IntroContainer = styled.div`
 `;
 
 const SVGLogoContainer = styled.img`
-    border: 5px;
+    border: bla
 `;
 {/* End of Styled Components */}
     return (
