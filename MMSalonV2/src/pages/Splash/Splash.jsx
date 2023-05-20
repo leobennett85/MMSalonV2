@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Logo from "../../assets/images/logo.svg";
 import LogoBW from "../../assets/images/logobw.svg";
 import { motion } from "framer-motion";
+import Dazzle from "../../components/Dazzle/Dazzle"
 
 const Splash = () => {
 
@@ -11,7 +12,7 @@ const IntroContainer = styled.div`
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+     align-items: center;
 `;
 
 const SVGLogo = styled(motion.img)`
@@ -22,11 +23,12 @@ const SVGLogo = styled(motion.img)`
     width: 75%;
     height: 75%;
 `;
-
 {/* End of Styled Components */}
+
     return (
         <>
             <IntroContainer>
+                <Dazzle />
                 <SVGLogo
                 initial={{ opacity: 0, scale: 1 }}
                 animate={{ opacity: 1, scale: 1 }}
