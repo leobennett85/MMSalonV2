@@ -7,12 +7,15 @@ import Dazzle from "../../components/Dazzle/Dazzle"
 const Splash = () => {
 
 {/* Styled Components */}
+const DazzleFullScreen = styled.div`
+    width: 100vw;
+`;
 const IntroContainer = styled.div`
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
-     align-items: center;
+    align-items: center;
 `;
 
 const SVGLogo = styled(motion.img)`
@@ -20,18 +23,20 @@ const SVGLogo = styled(motion.img)`
     position: fixed;
     justify-content: center;
     align-items: center;
-    width: 75%;
-    height: 75%;
+    width: 75vw;
+    height: 75vh;
 `;
 {/* End of Styled Components */}
 
     return (
         <>
             <IntroContainer>
-                <Dazzle />
+                <DazzleFullScreen>
+                    <Dazzle />
+                </DazzleFullScreen>
                 <SVGLogo
-                initial={{ opacity: 0, scale: 1 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0}}
+                animate={{ opacity: 1 }}
                 transition={{
                     duration: 6,
                     delay: 0.5,
@@ -39,8 +44,8 @@ const SVGLogo = styled(motion.img)`
                     }}
                 src={Logo} />                
                 <SVGLogo
-                initial={{ opacity: 1, scale: 1 }}
-                animate={{ opacity: 0, scale: 1 }}
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 0 }}
                 transition={{
                   duration: 6,
                   delay: 0.5,
