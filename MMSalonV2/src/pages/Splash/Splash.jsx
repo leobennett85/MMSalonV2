@@ -8,7 +8,7 @@ const Splash = () => {
 
 {/* Styled Components */}
 const DazzleFullScreen = styled.div`
-    width: 100vw;
+    width: 10vw;
 `;
 const IntroContainer = styled.div`
     width: 100vw;
