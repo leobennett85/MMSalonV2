@@ -7,10 +7,30 @@ import { motion } from "framer-motion";
     - Create function to randomize paths of Dazzle Objects
 */}
 
+
 const Dazzle = () => {
+{/* Style Variables and Functions */}
+
+const dimension1 = ["10px", "10px"];
+const dimension2 = ["8px", "8px"];
+const dimension3 = ["6px", "6px"];
+const dimension4 = ["4px", "4px"];
+const dimension5 = ["2px", "2px"];
+
+const possibleDimensions = [dimension1, dimension2, dimension3, dimension4, dimension5];
+const random = Math.floor(Math.random() * possibleDimensions.length);
+
+let randomDimension = () => {
+    let dim = possibleDimensions[random];
+    console.log(dim);
+    return dim;
+}
+
+
+
+{/* End of Style Variables and Functions */}
 
 {/* Styled Components */}
-
 const FullSiteContainer = styled.div`
     width: 100vw;
     height: 100vh;
@@ -22,9 +42,9 @@ const FullSiteContainer = styled.div`
 `;
 
 const Speck = styled(motion.div)`
-    width: 10px;
-    height: 10px;
-    background-color: red;
+    width: ${randomDimension[0]};
+    height: ${randomDimension[1]};
+    background-image: linear-gradient(to right, red , yellow);
 `;
 {/* End of Styled Components */}
 
