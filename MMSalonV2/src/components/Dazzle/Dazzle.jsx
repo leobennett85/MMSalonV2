@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 {/* TODO
-    - Create function to randomize initiated dimesions and colors of dazzle obejcts - DONE
+    - Create function to randomize initiated dimesions of dazzle obejcts - DONE
+    - Create function to randomize initiated colors of dazzle obejcts - DONE
     - Create function to create and finish new Dazzle objects
 
     - Create function to randomize paths of Dazzle Objects
@@ -12,7 +13,7 @@ import { motion } from "framer-motion";
 const Dazzle = () => {
     {/* Style Variables and Functions */}
 
-    {/* Define Dimension sets */}
+    //#region Dimensions
     const dimension1 = "10px";
     const dimension2 = "8px";
     const dimension3 = "6px";
@@ -36,6 +37,34 @@ const Dazzle = () => {
           } while (i < 15);
     }
     console.log(TestPicker());
+    //#endregion Dimensions
+
+    //#region colors
+    const fleckColor1 = "#ffdddd";
+    const fleckColor2 = "#ddffff";
+    const fleckColor3 = "#c5d9ff";
+    const fleckColor4 = "#fcffdf";
+    const fleckColor5 = "#ddffe0";
+    {/* create an array of possible colors */}
+    const possibleColors = [fleckColor1, fleckColor2, fleckColor3, fleckColor4, fleckColor5];
+    {/* dimensionPicker function to choose random index of array */}
+    function ColorPicker() {
+        const randomIndex = Math.floor(Math.random() * possibleColors.length);
+        return randomIndex;
+    }
+    {/* colorPicker test loop */}
+    function TestColorPicker() {
+        let i = 0;
+        let colorPicked = '';
+        do {
+            colorPicked = ColorPicker();
+            console.log(i + ": " + colorPicked);
+            console.log("Color: " + possibleColors[colorPicked]);
+            i = i + 1;
+            } while (i < 15);
+    }
+    console.log(TestColorPicker());
+    //#endregion Colors
 
     {/* End of Style Variables and Functions */}
 
@@ -47,33 +76,48 @@ const Dazzle = () => {
         display: flex;
         top: 0;
         left: 0;
-
     `;
 
     const Speck = styled(motion.div)`
-        width: ${possibleDimensions[0]};
-        height: ${possibleDimensions[1]};
-        background-image: linear-gradient(to right, red , yellow);
+        width: ${possibleDimensions[DimensionPicker()]};
+        height: ${possibleDimensions[DimensionPicker()]};
+        background-image: linear-gradient(to right, ${possibleColors[ColorPicker()]}, ${possibleColors[ColorPicker()]}, ${possibleColors[ColorPicker()]} );
+        border: 1px solid black;
     `;
     {/* End of Styled Components */}
 
+    {/*Testing points */}
+    const point1x = "calc(100vw - 10vw)";
+    const point1y = "calc(100vh - 80vh)";
+
+    {/*Testing recreation*/}
+    const addSpeck = `document.createElement(Speck)`;
+    function Recreate() {
+        let i = 0;
+        do {
+            addSpeck;
+            i = i + 1;
+          } while (i < 15);
+    }
+    
     return (
         <>
         <FullSiteContainer>
-            <Speck 
+            <Recreate>         
+            <Speck
                 animate = {{
                     rotateX: 180,
                     rotateY: 180,
-                    x: "100vw",
-                    y: "100vh"
-                 }}
+                    x: `${point1x}`,
+                    y: `${point1y}`,
+                }}
                 transition={{
                     repeat: Infinity,
                     ease: [0.25, 0.50, 0.75, 1],
                     duration: 10
-                    }}
-            
-            />
+                }}>
+            </Speck>
+            </Recreate>
             </FullSiteContainer>
         </>
     )
