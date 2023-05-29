@@ -2,51 +2,60 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 {/* TODO
+    - Create function to randomize initiated dimesions and colors of dazzle obejcts - DONE
     - Create function to create and finish new Dazzle objects
-    - Create function to randomize initiated dimesions and colors of dazzle obejcts
+
     - Create function to randomize paths of Dazzle Objects
 */}
 
 
 const Dazzle = () => {
-{/* Style Variables and Functions */}
+    {/* Style Variables and Functions */}
 
-const dimension1 = ["10px", "10px"];
-const dimension2 = ["8px", "8px"];
-const dimension3 = ["6px", "6px"];
-const dimension4 = ["4px", "4px"];
-const dimension5 = ["2px", "2px"];
+    {/* Define Dimension sets */}
+    const dimension1 = "10px";
+    const dimension2 = "8px";
+    const dimension3 = "6px";
+    const dimension4 = "4px";
+    const dimension5 = "2px";
+    {/* create an array of possiblie Dimensions */}
+    const possibleDimensions = [dimension1, dimension2, dimension3, dimension4, dimension5];
+    {/* dimensionPicker function to choose random index of array */}
+    function DimensionPicker() {
+        const randomIndex = Math.floor(Math.random() * possibleDimensions.length);
+        return randomIndex;
+    }
+    {/* dimensionPicker test loop */}
+    function TestPicker() {
+        let i = 0;
+        let dimension = '';
+        do {
+            dimension = DimensionPicker();
+            console.log(i + ": " + dimension);
+            i = i + 1;
+          } while (i < 15);
+    }
+    console.log(TestPicker());
 
-const possibleDimensions = [dimension1, dimension2, dimension3, dimension4, dimension5];
-const random = Math.floor(Math.random() * possibleDimensions.length);
+    {/* End of Style Variables and Functions */}
 
-let randomDimension = () => {
-    let dim = possibleDimensions[random];
-    console.log(dim);
-    return dim;
-}
+    {/* Styled Components */}
+    const FullSiteContainer = styled.div`
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
 
+    `;
 
-
-{/* End of Style Variables and Functions */}
-
-{/* Styled Components */}
-const FullSiteContainer = styled.div`
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    display: flex;
-    top: 0;
-    left: 0;
-
-`;
-
-const Speck = styled(motion.div)`
-    width: ${randomDimension[0]};
-    height: ${randomDimension[1]};
-    background-image: linear-gradient(to right, red , yellow);
-`;
-{/* End of Styled Components */}
+    const Speck = styled(motion.div)`
+        width: ${possibleDimensions[0]};
+        height: ${possibleDimensions[1]};
+        background-image: linear-gradient(to right, red , yellow);
+    `;
+    {/* End of Styled Components */}
 
     return (
         <>
