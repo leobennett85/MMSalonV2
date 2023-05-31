@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Logo from "../../assets/images/logo.svg";
 import LogoBW from "../../assets/images/logobw.svg";
 import { motion } from "framer-motion";
-import Dazzle from "../../components/Dazzle/Dazzle"
+import DazzleLoop from "../../components/DazzleLoop/DazzleLoop"
 
 const Splash = () => {
 
@@ -33,7 +33,7 @@ const SVGLogo = styled(motion.img)`
         <>
             <IntroContainer>
                 <DazzleFullScreen>
-                    <Dazzle />
+                    <DazzleLoop />
                 </DazzleFullScreen>
                 <SVGLogo
                 initial={{ opacity: 0}}
